@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
-	<head>
+<head>
 		<title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<style>
+		a.bookmarklet {
+		    display: -moz-inline-box;
+		    display: inline-block;
+		    padding: 1px 6px;
+		    height: 18px;
+		    color: #fff;
+		    background: #32a0eb;
+		    -webkit-border-radius: 4px;
+		    -moz-border-radius: 4px;
+		    border-radius: 4px;
+	    	}
+	    	.bottom {
+	    		position: absolute;
+	    		bottom:0;
+	    		width: 100%;
+	    		font-emphasis: italic;
+	    		margin-bottom:20px;
+	    	}
+	    	.center {
+	    		text-align: center;
+	    	}
+		</style>
 	</head>
 	<body>
-		<div>TODO write content</div>
+		<h1>Install and use the Flash Maximizer Bookmarklet</h1>
+		First, drag this button to your bookmark bar:
+		<a class="bookmarklet" href="javascript:(function()%7Bif%20(window.foundFlashSrc)%20%7Bdocument.location%20%3D%20window.foundFlashSrc%3B%7Dfunction%20getLargest(tagname)%20%7Bvar%20largestObject%20%3D%20false%2C%20largestArea%20%3D%20-1%2C%20i%20%3D%200%2C%20objects%20%3D%20document.getElementsByTagName(tagname)%2C%20thisArea%20%3D%200%3Bfor%20(var%20l%20%3D%20objects.length%3B%20i%20%3C%20l%3B%20i%2B%2B)%20%7Bwith%20(objects%5Bi%5D)%20%7BthisArea%20%3D%20clientHeight%20*%20clientWidth%3Bif%20(thisArea%20%3E%20largestArea)%20%7BlargestArea%20%3D%20thisArea%3BlargestObject%20%3D%20objects%5Bi%5D%3B%7D%7D%7Dreturn%20largestObject%3B%7Dfunction%20outerHTML(node)%20%7Bif%20(%22outerHTML%22%20in%20document.createElementNS(%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%2C%20%22_%22))%20%7Breturn%20node.outerHTML%3B%7Dif%20(document.xmlVersion)%20%7Bvar%20xml_serializer%20%3D%20new%20XMLSerializer%3Breturn%20xml_serializer.serializeToString(node)%3B%7Dvar%20container%20%3D%20document.createElementNS(%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%2C%20%22_%22)%2C%20elem_proto%20%3D%20(view.HTMLElement%20%7C%7C%20view.Element).prototype%3Bcontainer.appendChild(node.cloneNode(false))%3Bvar%20html%20%3D%20container.innerHTML.replace(%22%3E%3C%22%2C%20%22%3E%22%20%2B%20node.innerHTML%20%2B%20%22%3C%22)%3Bcontainer.innerHTML%20%3D%20%22%22%3Breturn%20html%3B%7Dfunction%20bigNode(node)%20%7Bnode.setAttribute(%22style%22%2C%22width%3A100%25%3Bheight%3A100%25%3Bmargin%3A0%3Bpadding%3A0%22)%3Bnode.setAttribute(%22class%22%2C%22%22)%3B%7Dvar%20obj%20%3D%20getLargest(%22object%22)%3Bif%20(!obj)%20%7Bobj%20%3D%20getLargest(%22iframe%22)%3B%7Dif%20(!obj)%20%7Balert(%22No%20Flash%20players%20found.%22)%3B%7D%20else%20%7BbigNode(obj)%3Bobj.focus()%3Bvar%20alt%20%3D%20document.getElementsByTagName(%22embed%22)%2C%20dl%20%3D%20%22%22%3Bif%20(alt.length)%20%7BbigNode(alt%5B0%5D)%3Balt%5B0%5D.focus()%3Bvar%20src%20%3D%20alt%5B0%5D.getAttribute(%22src%22)%3Bif%20(src.length%20%26%26%20src.indexOf(%22.swf%22)%20%3E%200)%20%7Bvar%20instructions%20%3D%20%22To%20save%20a%20bookmark%3A%5CnRight-click%20and%20select%20%60Open%20link%20in%20new%20tab%2C%20then%20save%20that%20page%20to%20your%20bookmarks.%5Cn%5CnTo%20download%20as%20a%20.swf%20file%3A%5CnRight-click%20and%20select%20%60Save%20link%20as...%60%22%2C%20fadeId%20%3D%20setTimeout(%22document.getElementsByTagName('a')%5B0%5D.style('display'%2C'none')%3B%22)%3Bdl%20%3D%20'%3Ca%20href%3D%22'%20%2Bsrc%20%2B'%22%20style%3D%22position%3Aabsolute%3Btop%3A0%3Bleft%3A0%3Bbackground-color%3Awhite%3Bcolor%3Ablue%22%20onclick%3D%22alert(%5C''%2Binstructions%2B'%5C')%3B%20clearTimeout('%2BfadeId%2B')%3B%20return%20false%3B%22%3E%3Cimg%20src%3D%22https%3A%2F%2Fraw.githubusercontent.com%2Fefreed%2Fmaximize-flash%2Fmaster%2Fdownload.png%22%20width%3D%2224%22%20height%3D%2224%22%3E%3C%2Fa%3E'%3B%7D%7Ddocument.body.innerHTML%20%3D%20dl%20%2B%20outerHTML(obj)%3BbigNode(document.body)%3BbigNode(document.getElementsByTagName(%22html%22)%5B0%5D)%3B%7D%7D)()">[Max.Flash]</a>
+		<br><br>
+		Second, while on a page that has a flash app or game, click the button on your bookmark bar.
+
+		<div class="bottom center">
+			See <a href="https://github.com/efreed/maximize-flash/blob/master/README.md">the readme</a> for more info.
+			<br><br>
+			<i>Thanks to Peter Coles for <a href="http://mrcoles.com/bookmarklet/">the best bookmarket compiler ever</a></i>.
+		</div>
 	</body>
 </html>
