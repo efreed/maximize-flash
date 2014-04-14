@@ -7,11 +7,11 @@ Maximize Flash Bookmarket.  Make any site's flash app or game full-screen by add
 Install Instructions
 ====================
 
-Go to the install page and drag the link to you bookmark bar.
+Go to [the install page](https://rawgit.com/efreed/maximize-flash/master/install.html) and drag the link to you bookmark bar.
 
 Then when on a site with a flash app or game, click the button in the bookmark bar.  If it finds the Flash player, it will enlarge it to fill the screen.  Refresh the webpage to undo.
 
-Sometimes, it will even find the ".swf" source of the flash app.  In that case, an icon will appear at the top left for a few seconds allowing you to download or directly bookmark the full-screen version.
+Sometimes, it will even find the ".swf" source of the flash app.  In that case, an icon will appear at the top center for a few seconds allowing you to download or directly bookmark the full-screen version.
 
 
 
